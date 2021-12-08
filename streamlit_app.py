@@ -2,7 +2,10 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import pydeck as pdk
+
 import os
+import subprocess
+import sys
 
 @st.experimental_memo
 def load_data():
@@ -11,7 +14,7 @@ def load_data():
     columns=['lat', 'lon'])
   return df
 
-
+subprocess.run([f"{sys.executable}", "-m", "streamlit", "config", "show"])
 
 df = load_data()
 
