@@ -14,6 +14,9 @@ def load_data():
     columns=['lat', 'lon'])
   return df
 
+if "STREAMLIT_MAPBOX_TOKEN" not in os.environ:
+  os.environ["STREAMLIT_MAPBOX_TOKEN"] = st.secrets["token"]
+
 subprocess.run([f"{sys.executable}", "-m", "streamlit", "config", "show"])
 
 df = load_data()
